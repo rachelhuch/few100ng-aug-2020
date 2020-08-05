@@ -1,0 +1,23 @@
+<div class="form-group">
+  <label for="Item">Item To Add</label>
+  <input class="form-control"
+         #thingy
+         name="Item">
+  <button class="btn btn-success"
+          (click)="addItem(thingy)">Add Item</button>
+</div>
+<section>
+  <ul class="list-unstyled">
+    <li class="alert"
+        [ngClass]="{'alert-dark': item.completed, 'alert-info': !item.completed}"
+        *ngFor="let item of items$ | async">
+      <button *ngIf="!item.completed"
+              (click)="markCompleted(item)"
+              class="btn btn-sm btn-danger">X</button>
+      <span [ngClass]="{'completed': item.completed}">{{ item.description}}</span>
+    </li>
+  </ul>
+</section>
+<button *ngIf="hasCompleted$ | async"
+        (click)="clearCompleted()"
+        class="btn btn-danger">Clear Completed</button>

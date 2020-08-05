@@ -18,11 +18,16 @@ export class TipCalculatorComponent implements OnInit {
 
   amountChanged(amount: number): void {
     this.amount = amount;
+    this.updateUi();
+  }
+
+  private updateUi(): void {
     this.tipAmount = this.tipPercentage * this.amount;
     this.total = this.amount + this.tipAmount;
   }
 
   changeTipPercentage(percent: number): void {
     this.tipPercentage = percent;
+    this.updateUi();
   }
 }
