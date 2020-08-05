@@ -1,0 +1,36 @@
+<section>
+  <div class="form-group">
+    <label for="amount">Bill Amout</label>
+    <input type="number"
+           id="amount"
+           class="form-control"
+           name="amount">
+  </div>
+</section>
+<section>
+  <div class="btn-group"
+       role="group"
+       aria-label="Tip Amount">
+    <button type="button"
+            data-tip=".10"
+            class="btn btn-secondary tipButton">10%</button>
+    <button type="button"
+            data-tip=".15"
+            class="btn btn-secondary tipButton">15%</button>
+    <button type="button"
+            data-tip=".20"
+            disabled
+            class="btn btn-secondary tipButton">20%</button>
+    <button type="button"
+            data-tip=".25"
+            class="btn btn-secondary tipButton">25%</button>
+  </div>
+</section>
+<section>
+  <ul class="list-group">
+    <li class="list-group-item">Bill Amount $<span id="billAmount">0.00</span></li>
+    <li class="list-group-item">Tip Percentage <span id="tipPercentage">20</span>%</li>
+    <li class="list-group-item">Tip Amount $<span id="tipAmount">0.00</span></li>
+    <li class="list-group-item">Total To Be Paid $<span id="total">0.00</span></li>
+  </ul>
+</section>
