@@ -1,1 +1,6 @@
-<p>home works!</p>
+<div class="alert alert-success">
+  <h3>Todo List:</h3>
+  <p>You have {{ (todoSummary$ | async)?.total}} todo items.</p>
+  <p>You have {{ (todoSummary$ | async)?.completed}} todo items are completed.</p>
+  <p>You have {{ (todoSummary$ | async)?.incomplete}} todo items are incomplete</p>
+</div>

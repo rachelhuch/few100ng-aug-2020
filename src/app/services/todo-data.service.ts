@@ -1,4 +1,4 @@
-import { TodoListItem } from '../models';
+import { TodoListItem, TodoHome } from '../models';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { computeDigest } from '@angular/compiler/src/i18n/digest';
 import * as cuid from 'cuid';
@@ -50,5 +50,17 @@ export class TodoDataService {
     // do the api stuff or whatever.
     this.items = this.items.filter(item => item.completed === false);
     this.subject.next(this.items);
+  }
+
+  getDashboard(): Observable<TodoHome> {
+    return this.subject.pipe(
+      map(items => {
+        return {
+          total: items.length,
+          incomplete: items.filter(i => !i.completed).length,
+          completed: items.filter(i => i.completed).length
+        } as TodoHome;
+      })
+    );
   }
 }
